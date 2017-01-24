@@ -1,5 +1,18 @@
-%h1
-  Dashboard
+= session['user_token']
 
-%p
-  Authentication required to access this page
+%h2
+  You have
+  =@open_pull_requests.values.count
+  Open Pull Requests
+
+- @open_pull_requests.keys.each do |key|
+  %h4
+    = key
+  - if @open_pull_requests[key].blank?
+    n/a
+  - else
+    - @open_pull_requests[key].each do |pr|
+      %p
+        = link_to pr['title'], pr['html_url'], target: '_blank'
+        .hidden
+          = pr.inspect

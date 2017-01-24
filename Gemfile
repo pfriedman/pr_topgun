@@ -42,6 +42,8 @@ gem 'haml-rails'
 gem 'omniauth-github'
 gem 'github_api'
 
+gem 'rest-client'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
